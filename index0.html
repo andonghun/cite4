@@ -78,46 +78,29 @@
 <h2>블록체인의 무결성을 활용한 데이터 위변조 감지 영상 정보 보안 솔루션 DEMO</h2>
 <h4>창의IT종합설계Ⅳ시스템통합[CITE302-01] - 안동훈</h4>
 <div class="topnav">
-  <a class="active" href="/index.html">해쉬값을 이용한 영상 저장</a>
-  <a href="/index0.html">데이터 위변조 시나리오</a>
+  <a href="/index.html">해쉬값을 이용한 영상 저장</a>
+  <a class="active" href="/index0.html">데이터 위변조 시나리오</a>
 </div>
 <hr>
 <br>
 <br>
 <div style="padding-left: 300px;">
-<span>
       1. 저장할 파일을 제출하십시오.<br>
       <input type="file" id="getFileHash" onchange="getMd5(this)" />
       <br /> 저장된 파일의 Hash Value:
       <input type="text" name="FileHash" id="res" style="width:300px;" readonly />
-      <br />
-      <br />
-      2. 이더리움 네트워크에 저장되어있는 해쉬값과 현재 동영상의 해쉬값을 비교합니다.<br>
-<span style="display: none;">
+<Br>
+      2. 위변조 된 파일을 제출하십시오.<br>
       <input type="file" id="getFileHash" onchange="getMd52(this)" />
       <br /> 저장된 파일의 Hash Value:
-      <input type="text" name="FileHash" id="res2" readonly />
-</span>
+      <input type="text" name="FileHash" id="res2" style="width:300px;" readonly />
+<br>
       파일 위변조 검증<br>
       <input type="button" value="검증" onclick="test();"/>
 
+<span>
+</span>
 
-
-      <span style="display: none;">
-
-<br><br><br><br><br><br><br>
-
-      블록체인 컨트랙트 주소: <span id="contractAddr"></span>
-
-        <li>컨트랙트에 저장된 값: <span id="HashedData"></span>
-          <button onclick="getValue()">새로고침</button> (현재블록: <span id="lastBlock"></span>)</li>
-        <li><input id="newValue" type="text"><button onclick="setValue()">새 값으로 저장하기</button>
-            <div id="result"></div></li>
-        <li>새 값을 저장한 후 팬딩 트랜잭션이 블록에 포함되면 자동으로 페이지가 업데이트될 것입니다.</li>
-      </ul>
-
-
-    </span>
 
 
 

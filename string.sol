@@ -1,13 +1,13 @@
 pragma solidity ^0.4.24;
 
 contract String {
-    string store = "abcabcabcacbc";
+    bytes store = "abcabcabcacbc";
 
-    function setStore(string x) {
+    function setStore(bytes x) {
       store = x;
     }
 
-    function getStore() constant returns (string x) {
+    function getStore() constant returns (bytes x) {
       x = store;
       return x;
     }
