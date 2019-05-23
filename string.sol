@@ -1,13 +1,14 @@
 pragma solidity ^0.4.24;
 
 contract String {
-    string store = "default";
+    string store = "abcabcabcacbc";
 
-    function getStore() public view returns (string) {
-      return store;
+    function setStore(string x) {
+      store = x;
     }
 
-    function setStore(string _value) public {
-      store = _value;
+    function getStore() constant returns (string x) {
+      x = store;
+      return x;
     }
 }

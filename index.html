@@ -90,7 +90,7 @@
       <input type="file" id="getFileHash" onchange="getMd5(this)" />
       <br /> 저장된 파일의 Hash Value:
       <input type="text" name="FileHash" id="res" readonly />
-      1-1. 위변조 된 파일을 제출하십시오.<br>
+      2. 위변조 된 파일을 제출하십시오.<br>
       <input type="file" id="getFileHash" onchange="getMd52(this)" />
       <br /> 저장된 파일의 Hash Value:
       <input type="text" name="FileHash" id="res2" readonly />
@@ -131,13 +131,43 @@
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
 
-var contractAddress = '0xaa84BE599040C2F63429E58c97Df19EC2CF6a79c';
-var abi = [{"constant":false,"inputs":[{"name":"x","type":"uint256"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}];
-var simpleStorageContract;
-var simpleStorage;
+var contractAddress = '0xba3cfd92233939eb187bb09db2a6ad962bb0ba2b';
+var abi =
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "x",
+				"type": "bytes"
+			}
+		],
+		"name": "setStore",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getStore",
+		"outputs": [
+			{
+				"name": "x",
+				"type": "bytes"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+var string;
+var stringContract;
 
 window.addEventListener('load', function() {
-
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
     // Use Mist/MetaMask's provider
@@ -162,8 +192,8 @@ function test(){
 
 
 function startApp() {
-  simpleStorageContract = web3.eth.contract(abi);
-  simpleStorage = simpleStorageContract.at(contractAddress);
+  string = web3.eth.contract(abi);
+  string = string.at(contractAddress);
   document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
   web3.eth.getAccounts(function(e,r){
     document.getElementById('accountAddr').innerHTML = getLink(r[0]);
@@ -173,11 +203,11 @@ function startApp() {
 }
 
 function getLink(addr) {
-  return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
+  return '<a target="_blank" href=https://ropsten.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
 
 function getValue() {
-  simpleStorage.get(function(e,r){
+  string.getStore(function(e,r){
     document.getElementById('HashedData').innerHTML=r.toNumber();
 
   });
@@ -188,9 +218,9 @@ function getValue() {
 
 function setValue() {
 
-  var newValue = document.getElementById('res').value;
+  var newValue = document.getElementById('newValue').value;
   var txid
-  simpleStorage.set(newValue, function(e,r){
+  string.setStore(newValue, function(e,r){
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
   });
