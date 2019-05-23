@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
   <title>Cite_안동훈</title>
   <style>
+
   .topnav {
   background-color: white;
   overflow: hidden;
@@ -32,6 +33,9 @@
   border-bottom: solid 1px black;
   color: black;
 }
+
+
+
     body {margin-left:50px;}
     #storedData {font-size:300%; margin-right:10px;}
     #newValue {width: 200px; margin-right:10px; text-align:right;}
@@ -72,48 +76,32 @@
     padding-top: 30px;
   }
   </style>
-
 </head>
 <body>
 <h2>블록체인의 무결성을 활용한 데이터 위변조 감지 영상 정보 보안 솔루션 DEMO</h2>
 <h4>창의IT종합설계Ⅳ시스템통합[CITE302-01] - 안동훈</h4>
 <div class="topnav">
-  <a class="active" href="/index.html">Home</a>
-  <a href="/Verification.html">데이터 위변조 검증</a>
+  <a href="/index.html">Home</a>
+  <a class="active" href="/Verification.html">데이터 위변조 검증</a>
 </div>
 <hr>
 <br>
 <br>
 <div style="padding-left: 300px;">
-<span>
-      1. 저장할 파일을 제출하십시오.<br>
+<span style="">
+      1. 저장할 파일을 제출하십시오.<br><br>
       <input type="file" id="getFileHash" onchange="getMd5(this)" />
       <br /> 저장된 파일의 Hash Value:
-      <input type="text" name="FileHash" id="res" readonly />
-      바뀌는지 테스트
-      1-1. 위변조 된 파일을 제출하십시오.<br>
+      <input type="text" name="FileHash" id="res" style="width: 300px; margin-left: 20px;" readonly />
+      <br>
+</span>
+      기존 파일을 제거하고 위변조할 파일을 제출하십시오.<br><br>
       <input type="file" id="getFileHash" onchange="getMd52(this)" />
       <br /> 저장된 파일의 Hash Value:
-      <input type="text" name="FileHash" id="res2" readonly />
-
-      파일 위변조 검증<br>
+      <input type="text" name="FileHash" id="res2" style="width: 300px; margin-left: 20px;" readonly />
+      <br><br>
+      <h4 style="text-align:left;">파일 위변조 검증</h4>
       <input type="button" value="검증" onclick="test();"/>
-
-<br><br><br><br><br><br><br>
-      블록체인 컨트랙트 주소: <span id="contractAddr"></span>
-      My Account 주소:<span id="accountAddr"></span>
-
-        <li>컨트랙트에 저장된 값: <span id="storedData"></span>
-          <button onclick="getValue()">새로고침</button> (현재블록: <span id="lastBlock"></span>)</li>
-        <li><input id="newValue" type="text"><button onclick="setValue()">새 값으로 저장하기</button>
-            <div id="result"></div></li>
-        <li>새 값을 저장한 후 팬딩 트랜잭션이 블록에 포함되면 자동으로 페이지가 업데이트될 것입니다.</li>
-      </ul>
-
-
-
-
-
 
 
 
@@ -143,7 +131,9 @@ window.addEventListener('load', function() {
 });
 
 function test(){
-  if(res.value == res2.value){
+  var test1 = res.value;
+  var test2 = res2.value;
+  if(test1 == test2){
     alert('정상적인 파일입니다.');
   }
   else {
