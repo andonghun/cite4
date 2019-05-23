@@ -340,7 +340,6 @@ function getMd5(obj) {
 		document.getElementById("res").value = "";
 	} else {
 	document.getElementById("res").value = md5(obj.value);
-  var test1 = res.value;
 	}
 }
 
@@ -349,6 +348,5 @@ function getMd52(obj) {
 		document.getElementById("res2").value = "";
 	} else {
 	document.getElementById("res2").value = md5(obj.value);
-  var test2 = res2.value;
 	}
 }

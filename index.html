@@ -90,7 +90,6 @@
       <input type="file" id="getFileHash" onchange="getMd5(this)" />
       <br /> 저장된 파일의 Hash Value:
       <input type="text" name="FileHash" id="res" readonly />
-      바뀌는지 테스트
       1-1. 위변조 된 파일을 제출하십시오.<br>
       <input type="file" id="getFileHash" onchange="getMd52(this)" />
       <br /> 저장된 파일의 Hash Value:
@@ -132,7 +131,7 @@
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
 
-var contractAddress = '0xeAb3436A6047854159a263292618f68eA4A01e2D';
+var contractAddress = '0xaa84BE599040C2F63429E58c97Df19EC2CF6a79c';
 var abi = [{"constant":false,"inputs":[{"name":"x","type":"uint256"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}];
 var simpleStorageContract;
 var simpleStorage;
